@@ -17,6 +17,8 @@ class OSCKeyboard:
                 self.ip = self.load_config_entry(self.ip, config, "ip")
                 # OSC Port
                 self.port = self.load_config_entry(self.port, config, "port")
+                # Require focusing on the window for inputs
+                self.require_focus = self.load_config_entry(self.require_focus, config, "require_focus")
                 # Target window to restrict inputs in
                 self.window = self.load_config_entry(self.window, config, "window")
                 # Delay between key presses
@@ -53,6 +55,7 @@ class OSCKeyboard:
     def load_default_config(self):
         self.ip = "127.0.0.1"
         self.port = 9000
+        self.require_focus = True
         self.window = "VRChat"
         self.key_delay = 0.25
         self.keyboard_key = "="
@@ -108,6 +111,8 @@ class OSCKeyboard:
         ]
 
     def is_correct_window(self):
+        if not self.require_focus:
+            return True
         return GetWindowText(GetForegroundWindow()).lower() == self.window.lower()
 
     def enable_keyboard(self):
@@ -204,12 +209,12 @@ if __name__ == "__main__":
         "- Enable OSC in the VRChat Action Menu under Options -> OSC",
         "- Press `{0}` to toggle the keyboard on and off".format(osc_keyboard.keyboard_key.upper()),
         "- While the keyboard is enabled...",
-        "    - Type text with keyboard input while VRChat is focused",
+        "    - Type to write - inputs are buffered to help with sync",
+        "    - Supported input: A-Z, 0-9, spacebar, backspace, enter",
         "    - Press `{0}` to clear out the current displayed text".format(osc_keyboard.enter_key.upper()),
         "    - Press `{0}` to mirror text to either face you or others".format(osc_keyboard.mirror_key.upper()),
         "    - Press `{0}` to toggle typing mode to allow movement and".format(osc_keyboard.typing_mode_key.upper()),
         "      other actions while keeping text and keyboard visible",
-        "    - Supported input: A-Z, 0-9, spacebar, backspace, enter",
         "-----------------------------------------------------------"
     ]))
     osc_keyboard.start()

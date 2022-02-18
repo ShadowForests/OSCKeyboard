@@ -20,22 +20,24 @@ https://github.com/killfrenzy96/KillFrenzyVRCAvatarKeyboard) on it.
 - Enable OSC in the VRChat Action Menu under Options -> OSC
 - Press `=` to toggle the keyboard on and off
 - While the keyboard is enabled:
-    - Type text with keyboard input while VRChat is focused
+    - Type to write - inputs are buffered to help with sync
+    - Supported input: A-Z, 0-9, spacebar, backspace, enter
     - Press `ENTER` to clear out the current displayed text
     - Press `]` to mirror text to either face you or others
     - Press `-` to toggle typing mode to allow movement and
       other actions while keeping text and keyboard visible
-    - Supported input: A-Z, 0-9, spacebar, backspace, enter
 
-- OSC Keyboard is only active when you are focused on the VRChat window
+- OSC Keyboard is only active when you are focused on the VRChat window, unless the `require_focus` config option is `false`
 - The visual keyboard is non-functional and only present as part of the keyboard prefab
 - Only OSC events are sent to VRChat when the keyboard and typing mode are enabled
 - All other keyboard inputs to the game (such as walking or opening menus) are disabled to allow ease of typing
+- If you have sync issues with other players, you can adjust the `key_delay` config option
 
 ## Config Parameters
 These parameters can be adjusted inside `config.json`, which must be in the same directory as the program. This can also potentially allow usage of this program with other custom avatar keyboards.
 - `ip`: OSC IP
 - `port`: OSC Port
+- `require_focus`: Require focusing on the window for inputs
 - `window`: Target window to restrict inputs in
 - `key_delay`: Delay between key presses
 - `keyboard_key`: Key to toggle keyboard

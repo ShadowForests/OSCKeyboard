@@ -1,6 +1,7 @@
 {
     "ip": "127.0.0.1",
     "port": 9000,
+    "require_focus": false,
     "window": "VRChat",
     "key_delay": 0.25,
     "keyboard_key": "=",
