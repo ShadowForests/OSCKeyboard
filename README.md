@@ -1,7 +1,7 @@
-# OCS Keyboard
-OCS Keyboard is a program for Windows that utilizes VRC's avatar OSC capabilities and KillFrenzy's VRC Avatar Keyboard to allow users to type in VRChat.
+# OSC Keyboard
+OSC Keyboard is a program for Windows that utilizes VRC's avatar OSC capabilities and KillFrenzy's VRC Avatar Keyboard to allow users to type in VRChat.
 
-![OCSKeyboardDemo](OSCKeyboardDemo.gif)
+![OSCKeyboardDemo](OSCKeyboardDemo.gif)
 
 ## Requirements
 - Windows is required for foreground window detection
